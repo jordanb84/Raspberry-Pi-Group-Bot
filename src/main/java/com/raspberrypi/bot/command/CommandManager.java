@@ -1,6 +1,7 @@
 package com.raspberrypi.bot.command;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import de.btobastian.javacord.DiscordAPI;
@@ -34,7 +35,12 @@ public class CommandManager {
 			
 			for(Command command : this.commands){
 				if(command.getIdentifier().equals(argumentsIncludingCommand[0])){
-					command.onUse(api, argumentsIncludingCommand, queryMessage);
+					try {
+						command.onUse(api, argumentsIncludingCommand, queryMessage);
+					} catch (Exception e) {
+						queryMessage.reply("Oops, there was an error! Arguments: " + Arrays.toString(command.getArguments()));
+						e.printStackTrace();
+					}
 				}
 			}
 		}

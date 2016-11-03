@@ -22,8 +22,9 @@ public abstract class Command {
 	 * @param api API instance by which the command was executed
 	 * @param arguments Arguments passed for the command usage
 	 * @param callMessage The message by which the command was called
+	 * @throws For all exceptions that the command won't deal with
 	 */
-	public abstract void onUse(DiscordAPI api, String[] arguments, Message callMessage);
+	public abstract void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception;
 	
 	public String getIdentifier() {
 		return identifier;
