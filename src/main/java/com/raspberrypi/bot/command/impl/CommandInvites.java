@@ -23,7 +23,7 @@ public class CommandInvites extends Command {
 			}
 		}
 		
-		callMessage.reply("You have invited **" + invitedUsers + "** people! :smile:");
+		callMessage.reply("You have invited **" + invitedUsers + "** people! :smile: :fire: ");
 	}
 
 }
