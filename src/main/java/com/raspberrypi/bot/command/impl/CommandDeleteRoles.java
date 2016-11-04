@@ -14,6 +14,9 @@ public class CommandDeleteRoles extends Command {
 	
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception{
+		
+		//support for multi-word commands
+		
 		Server s;
 		s = callMessage.getChannelReceiver().getServer();
 		String role = "";
@@ -33,9 +36,21 @@ public class CommandDeleteRoles extends Command {
 		
 		Collection<Role> roles = s.getRoles();
 		for(Role b : roles ){
-			if(b.getName().equals(role)){
-				b.removeUser(callMessage.getAuthor());
+			if(b.getName().equals("C++")){
+				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were removed from " + role + ".");
+			}else if(b.getName().equals("Java")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were removed from " + role + ".");
+				break;
+			}else if(b.getName().equals("JavaScript")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were removed from " + role + ".");
+				break;
+			}else if(b.getName().equals("Python")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were removed from " + role + ".");
+				break;
 			}
 		}
 		

@@ -15,6 +15,8 @@ public class CommandRoles extends Command {
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception{
 		
+		//support for multi-word commands
+		
 		String role = "";
 		
 		int i = 0;
@@ -37,9 +39,22 @@ public class CommandRoles extends Command {
 		Collection<Role> roles = s.getRoles();
 		
 		for(Role b : roles ){
-			if(b.getName().equals(role)){
+			if(b.getName().equals("C++")){
 				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were added to " + role + ".");
+				break;
+			}else if(b.getName().equals("Java")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were added to " + role + ".");
+				break;
+			}else if(b.getName().equals("JavaScript")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were added to " + role + ".");
+				break;
+			}else if(b.getName().equals("Python")){
+				b.addUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were added to " + role + ".");
+				break;
 			}
 		}
 		
