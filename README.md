@@ -27,4 +27,4 @@ Discord bot for the Raspberry Pi Discord group
 1. Snail/Emoji Races. We could have somebody build a command that people would pick emoji's or be assigned a snail to race.
 2. Betting. We could also merge the betting and snail races or make them link .
 3. Automatically giving roles based on invites.
-4.You can send only 1 message in #introduce-yourself
+4. You can send only 1 message in #introduce-yourself
