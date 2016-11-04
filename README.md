@@ -24,4 +24,5 @@ Discord bot for the Raspberry Pi Discord group
 
 # TODO
 
-1. Make TODO list. To make a suggestion, either add it here or open an issue.
+1. Snail/Emoji Races. We could have somebody build a command that people would pick emoji's or be assigned a snail to race.
+2. Betting. We could also merge the betting and snail races or make them link .
