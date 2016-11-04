@@ -1,3 +1,5 @@
+![build](https://api.travis-ci.org/jordanb84/Raspberry-Pi-Group-Bot.svg?branch=master)
+
 # Raspberry Pi Group Bot
 Discord bot for the Raspberry Pi Discord group
 
