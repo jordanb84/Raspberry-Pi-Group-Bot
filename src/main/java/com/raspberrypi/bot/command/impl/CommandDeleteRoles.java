@@ -18,6 +18,9 @@ public class CommandDeleteRoles extends Command {
 		//support for multi-word commands
 		
 		Server s;
+		
+		boolean isRole = false;
+		
 		s = callMessage.getChannelReceiver().getServer();
 		String role = "";
 		
@@ -36,22 +39,31 @@ public class CommandDeleteRoles extends Command {
 		
 		Collection<Role> roles = s.getRoles();
 		for(Role b : roles ){
-			if(b.getName().equals("C++")){
-				b.addUser(callMessage.getAuthor());
+			if(role.equals("C++") && b.getName().equals("C++")){
+				b.removeUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were removed from " + role + ".");
-			}else if(b.getName().equals("Java")){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were removed from " + role + ".");
+				isRole = true;
 				break;
-			}else if(b.getName().equals("JavaScript")){
-				b.addUser(callMessage.getAuthor());
+			}else if(role.equals("Java") && b.getName().equals("Java")){
+				b.removeUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were removed from " + role + ".");
+				isRole = true;
 				break;
-			}else if(b.getName().equals("Python")){
-				b.addUser(callMessage.getAuthor());
+			}else if(role.equals("JavaScript") && b.getName().equals("JavaScript")){
+				b.removeUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were removed from " + role + ".");
+				isRole = true;
+				break;
+			}else if(role.equals("Python") && b.getName().equals("Python")){
+				b.removeUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were removed from " + role + ".");
+				isRole = true;
 				break;
 			}
+		}
+		
+		if(!isRole){
+			callMessage.reply("That isn't a role you can use...");
 		}
 		
 	

@@ -17,6 +17,8 @@ public class CommandRoles extends Command {
 		
 		//support for multi-word commands
 		
+		boolean isRole = false;
+		
 		String role = "";
 		
 		int i = 0;
@@ -39,23 +41,31 @@ public class CommandRoles extends Command {
 		Collection<Role> roles = s.getRoles();
 		
 		for(Role b : roles ){
-			if(b.getName().equals("C++")){
+			if(role.equals("C++") && b.getName().equals("C++")){
 				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were added to " + role + ".");
+				isRole = true;
 				break;
-			}else if(b.getName().equals("Java")){
+			}else if(role.equals("Java") && b.getName().equals("Java")){
 				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were added to " + role + ".");
+				isRole = true;
 				break;
-			}else if(b.getName().equals("JavaScript")){
+			}else if(role.equals("JavaScript") && b.getName().equals("JavaScript")){
 				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were added to " + role + ".");
+				isRole = true;
 				break;
-			}else if(b.getName().equals("Python")){
+			}else if(role.equals("Python") && b.getName().equals("Python")){
 				b.addUser(callMessage.getAuthor());
 				callMessage.reply("Success! You were added to " + role + ".");
+				isRole = true;
 				break;
 			}
+		}
+		
+		if(!isRole){
+			callMessage.reply("That isn't a role you can use...");
 		}
 		
 	
