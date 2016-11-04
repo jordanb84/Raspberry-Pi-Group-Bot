@@ -20,7 +20,7 @@ public class CommandExample extends Command {
 
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) {
-		callMessage.reply("Ping! Arguments: " + Arrays.toString(arguments));
+		callMessage.reply("Pong! Arguments: " + Arrays.toString(arguments));
 	}
 
 }

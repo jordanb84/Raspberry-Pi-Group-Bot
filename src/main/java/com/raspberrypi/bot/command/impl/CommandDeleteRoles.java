@@ -7,14 +7,15 @@ import de.btobastian.javacord.entities.message.Message;
 import de.btobastian.javacord.entities.permissions.Role;
 import de.btobastian.javacord.entities.Server;
 
-public class CommandRoles extends Command {
-	public CommandRoles(){
-		super("roleadd", new String[] {}, "Adds you to a specifc role.");
+public class CommandDeleteRoles extends Command {
+	public CommandDeleteRoles(){
+		super("roledelete", new String[] {}, "Deletes you from a specifc role.");
 	}
 	
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception{
-		
+		Server s;
+		s = callMessage.getChannelReceiver().getServer();
 		String role = "";
 		
 		int i = 0;
@@ -30,16 +31,11 @@ public class CommandRoles extends Command {
 		//remove the extra space at the end
 		role = role.substring(0, role.length()-1);
 		
-		Server s;
-		
-		s = callMessage.getChannelReceiver().getServer();
-		
 		Collection<Role> roles = s.getRoles();
-		
 		for(Role b : roles ){
 			if(b.getName().equals(role)){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were added to " + role + ".");
+				b.removeUser(callMessage.getAuthor());
+				callMessage.reply("Success! You were removed from " + role + ".");
 			}
 		}
 		
