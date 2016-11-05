@@ -21,7 +21,7 @@ public class CommandTest extends Command {
 
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception {
-		SnailRace snailRace = new SnailRace(callMessage, 1000, 10, 3);
+		SnailRace snailRace = new SnailRace(callMessage, 1000, 35, 10);
 		snailRace.start();
 	}
 
