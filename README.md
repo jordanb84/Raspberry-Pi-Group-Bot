@@ -34,3 +34,4 @@ Discord bot for the Raspberry Pi Discord group
 6. Obstacles, powerups, and different maps for snail races. All can be achieved with a couple of nice enums.
 7. Roles are automatically reassigned to people when they rejoin.
 8. Later, the snail races could be made into a full fledged game aside from the mini game. In this game, it would be like a "grinding" Flash game where you play races, collect money based on how well you do, then you can use your money to buy perks and upgrades for your character. You can then unlock harder races etc to win more money.
+9. dank mini game ideas
