@@ -69,12 +69,16 @@ public class CommandWayback extends Command {
 		
 		JsonElement element = parser.parse(json);
 		
-		JsonElement archived_snapshots = parseJson(element, "archived_snapshots");
-		JsonElement closest = parseJson(archived_snapshots, "closest");
-		JsonElement url = parseJson(closest, "url");
-		
-		message = url.getAsString();
-		callMessage.reply(message);
+		try {
+			JsonElement archived_snapshots = parseJson(element, "archived_snapshots");
+			JsonElement closest = parseJson(archived_snapshots, "closest");
+			JsonElement url = parseJson(closest, "url");
+			
+			message = url.getAsString();
+			callMessage.reply(message);
+		} catch (NullPointerException e) {
+			callMessage.reply("Can't get an archived version of that site.");
+		}
 		
 		client.close();
 	}
