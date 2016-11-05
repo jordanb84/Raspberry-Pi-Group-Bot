@@ -55,18 +55,4 @@ public abstract class Command {
 	public String getUsage() {
 		return usage;
 	}
-	
-	public static String addElementsTogether(String[] list){
-		String finalstr = "";
-		
-		for(int i = 1; i <= list.length; i++){
-			if(i != list.length){
-				finalstr += list[i-1] + ", ";
-			} else {
-				finalstr += list[i-1];
-			}
-		}
-		
-		return finalstr;
-	}
 }

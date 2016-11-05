@@ -1,4 +1,5 @@
 package com.raspberrypi.bot.command.impl;
+import java.util.Arrays;
 import java.util.Collection;
 
 import com.raspberrypi.bot.command.Command;
@@ -9,10 +10,10 @@ import de.btobastian.javacord.entities.permissions.Role;
 import de.btobastian.javacord.entities.Server;
 
 public class CommandRoles extends Command {
-	protected static String[] listofRoles = {"C++", "Java", "JavaScript", "Python"};
+	protected static String[] roles = {"C++", "Java", "JavaScript", "Python"};
 	
 	public CommandRoles(){
-		super("role", new String[] {}, "Adds/deletes you to a specifc role.", "role add <role> or role delete <role>\nArguments you can use: " + addElementsTogether(listofRoles));
+		super("role", roles, "Adds/deletes you to a specifc role.", "role add <role> or role delete <role>");
 	}
 	
 	private boolean contain(String[] str, String check){
@@ -39,7 +40,7 @@ public class CommandRoles extends Command {
 		
 		if(arguments[1].equals("add")){
 		
-			for(String roleinList: listofRoles){
+			for(String roleinList: this.roles){
 				
 				if(roleinList.equals(progRole)){
 					for(Role role: roles){
@@ -56,7 +57,7 @@ public class CommandRoles extends Command {
 			}
 			
 		} else if(arguments[1].equals("delete")){
-			for(String roleinList: listofRoles){
+			for(String roleinList: this.roles){
 				if(roleinList.equals(progRole)){
 					for(Role role: roles){
 						if(role.getName().equals(roleinList)){
@@ -71,7 +72,7 @@ public class CommandRoles extends Command {
 			}
 		}
 		
-		if(!contain(listofRoles, progRole)) callMessage.reply("You can't do that with this role.");
+		if(!contain(this.roles, progRole)) callMessage.reply("You can't do that with this role.");
 	
 	}
 }
