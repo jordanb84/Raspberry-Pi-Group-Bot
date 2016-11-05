@@ -12,6 +12,17 @@ public class CommandRoles extends Command {
 		super("role", new String[] {}, "Adds/deletes you to a specifc role.");
 	}
 	
+	private boolean contain(String[] str, String check){
+		
+		for(String strinArray : str){
+			if(strinArray.equals(check)){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception {
 	
@@ -25,13 +36,11 @@ public class CommandRoles extends Command {
 		
 		Collection<Role> roles = s.getRoles();
 		
-		System.out.println(arguments[1].equals("add"));
-		
 		if(arguments[1].equals("add")){
 		
 			for(String roleinList: listofRoles){
+				
 				if(roleinList.equals(progRole)){
-					System.out.println("Found something");
 					for(Role role: roles){
 						if(role.getName().equals(roleinList)){
 							role.addUser(callMessage.getAuthor());
@@ -39,6 +48,7 @@ public class CommandRoles extends Command {
 							break;
 						}
 					}
+					
 					break;
 				}
 				
@@ -60,6 +70,7 @@ public class CommandRoles extends Command {
 			}
 		}
 		
+		if(!contain(listofRoles, progRole)) callMessage.reply("You can't do that with this role.");
 	
 	}
 }
