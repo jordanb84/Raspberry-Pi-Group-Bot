@@ -11,10 +11,13 @@ public abstract class Command {
 	
 	private final String description;
 	
+	private CommandSection section;
+	
 	public Command(String identifier, String[] arguments, String description){
 		this.identifier = identifier;
 		this.arguments = arguments;
 		this.description = description;
+		this.section = CommandSection.General;
 	}
 
 	/**
@@ -38,4 +41,11 @@ public abstract class Command {
 		return arguments;
 	}
 	
+	protected void setSection(CommandSection section){
+		this.section = section;
+	}
+	
+	public CommandSection getSection(){
+		return this.section;
+	}
 }

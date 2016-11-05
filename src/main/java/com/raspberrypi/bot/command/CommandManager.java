@@ -57,4 +57,19 @@ public class CommandManager {
 		return this.commands;
 	}
 	
+	/**
+	 * @return All commands in the provided section
+	 */
+	public List<Command> getCommandsForSection(CommandSection section){
+		List<Command> commandsInSection = new ArrayList<Command>();
+		
+		for(Command potentialMatchCommand : this.getCommands()){
+			if(potentialMatchCommand.getSection() == section){
+				commandsInSection.add(potentialMatchCommand);
+			}
+		}
+		
+		return commandsInSection;
+	}
 }
+
