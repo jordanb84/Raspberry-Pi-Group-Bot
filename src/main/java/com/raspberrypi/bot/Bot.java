@@ -10,7 +10,7 @@ import com.raspberrypi.bot.command.impl.CommandStallman;
 import com.raspberrypi.bot.command.impl.CommandTest;
 import com.raspberrypi.bot.command.impl.CommandWayback;
 import com.raspberrypi.bot.events.EventGiveBerry;
-
+import com.raspberrypi.bot.events.EventGiveIntroduced;
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;
@@ -49,6 +49,7 @@ public class Bot {
 	public void registerEvents(){
 
 		this.api.registerListener(new EventGiveBerry());
+		this.api.registerListener(new EventGiveIntroduced());
 		
 	}
 	/**

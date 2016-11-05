@@ -14,7 +14,7 @@ import de.btobastian.javacord.listener.server.ServerMemberAddListener;
 
 public class EventGiveBerry implements ServerMemberAddListener {
 	// Berry Eater, Berry Gobbler, Berry Legend
-    public static String GeneralID = "204654022873841664"; // RPI spammy :3
+    public static String generalID = "204654022873841664"; // RPI spammy :3
 	//public static String GeneralID = "207079585173602304"; // Private testing
 	@Override
 	public void onServerMemberAdd(DiscordAPI api,User user,Server server) {
@@ -40,17 +40,18 @@ public class EventGiveBerry implements ServerMemberAddListener {
 			// System.out.println(invite.getUses());
 			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Legend"))){
 				roles.get("Berry Legend").addUser(invite.getCreator());
-					server.getChannelById(GeneralID).sendMessage(invite.getCreator().getMentionTag() + " **Got Berry Legend! Woah!**");
+					server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag() + " **Got Berry Legend! Woah!**");
 					return;
 		    }
 			if(invite.getUses() >= 50 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Gobbler"))){
 				roles.get("Berry Gobbler").addUser(invite.getCreator());
-				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Gobbler! Cool!**");
+				server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Gobbler! Cool!**");
 				return;
 		    }	
 			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Eater"))){
 				roles.get("Berry Eater").addUser(invite.getCreator());
-				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Eater!**");
+				server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Eater!**");
+				
 				return;
 		    }
 		
