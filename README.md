@@ -30,3 +30,5 @@ Discord bot for the Raspberry Pi Discord group
 2. Betting. We could also merge the betting and snail races or make them link .
 3. Automatically giving roles based on invites.
 4. You can send only 1 message in #introduce-yourself
+5. Integrate database. It will set the database up automatically if you have database software installed and there is no existing database. Include abstract database managing functionality. This can be used for a variety of fun games and such.
+6. Obstacles, powerups, and different maps for snail races. All can be achieved with a couple of nice enums.
