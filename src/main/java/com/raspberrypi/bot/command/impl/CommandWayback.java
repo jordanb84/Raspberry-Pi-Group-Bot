@@ -42,8 +42,10 @@ public class CommandWayback extends Command {
 	@Override
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception {
 		String message = "";
+		String json = "";
 		
 		JsonParser parser = new JsonParser();
+		
 		HttpGet request = null;
 		ResponseHandler<String> handler = new ResponseHandler<String>(){
 			
@@ -54,27 +56,29 @@ public class CommandWayback extends Command {
 			
 		};;
 		
-		String json = "";
-		
 		CloseableHttpClient client = HttpClients.createDefault();
 		
 		if(arguments.length == 2){
 			request = new HttpGet("http://archive.org/wayback/available?url="+arguments[1]+"&timestamp=19960101");
 		} else if (arguments.length == 3){
 			request = new HttpGet("http://archive.org/wayback/available?url="+arguments[1]+"&timestamp="+arguments[2]);
-			
 		}
 		
 		json = client.execute(request, handler);
 		
 		JsonElement element = parser.parse(json);
 		
-		JsonElement archived_snapshots = parseJson(element, "archived_snapshots");
-		JsonElement closest = parseJson(archived_snapshots, "closest");
-		JsonElement url = parseJson(closest, "url");
-		
-		message = url.getAsString();
-		callMessage.reply(message);
+		try {
+			JsonElement archived_snapshots = parseJson(element, "archived_snapshots");
+			JsonElement closest = parseJson(archived_snapshots, "closest");
+			JsonElement url = parseJson(closest, "url");
+			
+			message = url.getAsString();
+			callMessage.reply(message);
+			
+		} catch (NullPointerException e) {
+			callMessage.reply("Can't get an archived version of that site.");
+		}
 		
 		client.close();
 	}
