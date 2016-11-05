@@ -9,6 +9,8 @@ import com.raspberrypi.bot.command.impl.CommandRoles;
 import com.raspberrypi.bot.command.impl.CommandStallman;
 import com.raspberrypi.bot.command.impl.CommandTest;
 import com.raspberrypi.bot.command.impl.CommandWayback;
+import com.raspberrypi.bot.events.EventGiveBerry;
+import com.raspberrypi.bot.events.MyMessageListener;
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;
@@ -31,7 +33,7 @@ public class Bot {
 		
 		this.commandManager = new CommandManager(",");
 		this.registerCommands();
-		
+		this.registerEvents();
 		this.connect();
 	}
 	
@@ -44,7 +46,12 @@ public class Bot {
 		this.commandManager.registerCommand(new CommandStallman());
 		this.commandManager.registerCommand(new CommandTest());
 	}
-	
+	public void registerEvents(){
+		EventGiveBerry giveBerry = new EventGiveBerry();
+		
+		this.api.registerListener(giveBerry);
+		this.api.registerListener(new MyMessageListener());
+	}
 	/**
 	 * Connect the bot to the API
 	 */

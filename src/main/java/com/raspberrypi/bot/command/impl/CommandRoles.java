@@ -13,7 +13,7 @@ public class CommandRoles extends Command {
 	protected static String[] roles = {"C++", "Java", "JavaScript", "Python"};
 	
 	public CommandRoles(){
-		super("role", roles, "Adds/deletes you to a specifc role.", "role add <role> or role delete <role>");
+		super("role", roles, "Adds/deletes you to a specific role.", "role add <role> or role delete <role>");
 	}
 	
 	private boolean contain(String[] str, String check){
