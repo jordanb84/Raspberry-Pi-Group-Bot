@@ -1,11 +1,11 @@
 package com.raspberrypi.bot.command.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadLocalRandom;
 
 import com.raspberrypi.bot.command.Command;
 
@@ -92,7 +92,12 @@ class SnailRace extends Thread {
 			for(int spaceForPosition = 0; spaceForPosition < snail.getPositionSlot(); spaceForPosition++){
 				map += (" ");
 			}
-			map += (":snail: **" + snail.getName() + "**");
+			map += (":snail: -> :shrimp: **" + snail.getName() + "**(score " + snail.score + ")\n");
+			
+			for(int spaceForPosition = 0; spaceForPosition < this.raceEndPosition; spaceForPosition++){
+				map += (" ");
+			}
+			map += (":flag_black:");
 		}
 		
 		this.raceMessage.get().edit(map);
@@ -126,13 +131,18 @@ abstract class Entity {
 
 class EntitySnail extends Entity {
 
+	protected int score;
+	
 	EntitySnail(String name) {
 		super(name);
 	}
 
 	@Override
 	void tick() {
-		this.move(new Random().nextInt(3));
+		int moveAmount = (ThreadLocalRandom.current().nextInt(-1, 4));
+		this.score += moveAmount;
+		
+		this.move(moveAmount);
 	}
 	
 }
