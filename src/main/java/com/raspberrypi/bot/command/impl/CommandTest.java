@@ -92,7 +92,12 @@ class SnailRace extends Thread {
 			for(int spaceForPosition = 0; spaceForPosition < snail.getPositionSlot(); spaceForPosition++){
 				map += (" ");
 			}
-			map += (":snail: **" + snail.getName() + "**");
+			map += (":snail: -> :shrimp: **" + snail.getName() + "**\n");
+			
+			for(int spaceForPosition = 0; spaceForPosition < this.raceEndPosition; spaceForPosition++){
+				map += (" ");
+			}
+			map += (":flag_black: ");
 		}
 		
 		this.raceMessage.get().edit(map);
