@@ -35,17 +35,20 @@ public class EventGiveBerry implements ServerMemberAddListener {
             }
 		
 		for(Invite invite : serverInvites){
-			if(invite.getUses() >= 100 | ! invite.getCreator().getRoles(server).contains(roles.get("Berry Legend"))){
+			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Legend"))){
 				roles.get("Berry Legend").addUser(invite.getCreator());
-					server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ "Got Berry Legend! Woah!");
+					server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ " Got Berry Legend! Woah!");
+					return;
 		    }
-			if(invite.getUses() >= 50 | ! invite.getCreator().getRoles(server).contains(roles.get("Berry Gobbler"))){
+			if(invite.getUses() >= 50 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Gobbler"))){
 				roles.get("Berry Gobbler").addUser(invite.getCreator());
-				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ "Got Berry Gobbler! Cool!");
+				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ " Got Berry Gobbler! Cool!");
+				return;
 		    }	
-			if(invite.getUses() >= 100 | ! invite.getCreator().getRoles(server).contains(roles.get("Berry Eater"))){
+			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Eater"))){
 				roles.get("Berry Eater").addUser(invite.getCreator());
-				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ "Got Berry Eater!");
+				server.getChannelById(GeneralID).sendMessage(invite.getCreator().getName()+ " Got Berry Eater!");
+				return;
 		    }
 		
 		}
