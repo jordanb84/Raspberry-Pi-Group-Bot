@@ -2,8 +2,8 @@ package com.raspberrypi.bot;
 
 import com.google.common.util.concurrent.FutureCallback;
 import com.raspberrypi.bot.command.CommandManager;
-
 import com.raspberrypi.bot.command.impl.CommandExample;
+import com.raspberrypi.bot.command.impl.CommandHelp;
 import com.raspberrypi.bot.command.impl.CommandInvites;
 import com.raspberrypi.bot.command.impl.CommandRoles;
 
@@ -36,6 +36,7 @@ public class Bot {
 		this.commandManager.registerCommand(new CommandExample());
 		this.commandManager.registerCommand(new CommandInvites());
 		this.commandManager.registerCommand(new CommandRoles());
+		this.commandManager.registerCommand(new CommandHelp(this.commandManager));
 	}
 	
 	/**
