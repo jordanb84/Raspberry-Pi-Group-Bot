@@ -9,63 +9,55 @@ import de.btobastian.javacord.entities.Server;
 
 public class CommandRoles extends Command {
 	public CommandRoles(){
-		super("roleadd", new String[] {}, "Adds you to a specifc role.");
+		super("role", new String[] {}, "Adds/deletes you to a specifc role.");
 	}
 	
 	@Override
-	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception{
-		
-		//support for multi-word commands
-		
-		boolean isRole = false;
-		
-		String role = "";
-		
-		int i = 0;
-		
-		for(String a: arguments){
-			//we don't want to include the command itself
-			if(i != 0){
-				role = role + a + " ";
-			}
-			i++;
-		}
-		
-		//remove the extra space at the end
-		role = role.substring(0, role.length()-1);
-		
+	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception {
+	
 		Server s;
+		
+		String[] listofRoles = {"C++", "Java", "JavaScript", "Python"};
+		
+		String progRole = arguments[2];
 		
 		s = callMessage.getChannelReceiver().getServer();
 		
 		Collection<Role> roles = s.getRoles();
 		
-		for(Role b : roles ){
-			if(role.equals("C++") && b.getName().equals("C++")){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were added to " + role + ".");
-				isRole = true;
-				break;
-			}else if(role.equals("Java") && b.getName().equals("Java")){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were added to " + role + ".");
-				isRole = true;
-				break;
-			}else if(role.equals("JavaScript") && b.getName().equals("JavaScript")){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were added to " + role + ".");
-				isRole = true;
-				break;
-			}else if(role.equals("Python") && b.getName().equals("Python")){
-				b.addUser(callMessage.getAuthor());
-				callMessage.reply("Success! You were added to " + role + ".");
-				isRole = true;
-				break;
-			}
-		}
+		System.out.println(arguments[1].equals("add"));
 		
-		if(!isRole){
-			callMessage.reply("That isn't a role you can use...");
+		if(arguments[1].equals("add")){
+		
+			for(String roleinList: listofRoles){
+				if(roleinList.equals(progRole)){
+					System.out.println("Found something");
+					for(Role role: roles){
+						if(role.getName().equals(roleinList)){
+							role.addUser(callMessage.getAuthor());
+							callMessage.reply("Successfully added to: " + roleinList);
+							break;
+						}
+					}
+					break;
+				}
+				
+			}
+			
+		} else if(arguments[1].equals("delete")){
+			for(String roleinList: listofRoles){
+				if(roleinList.equals(progRole)){
+					for(Role role: roles){
+						if(role.getName().equals(roleinList)){
+							role.removeUser(callMessage.getAuthor());
+							callMessage.reply("Successfully removed from: " + roleinList);
+							break;
+						}
+					}
+					break;
+				}
+				
+			}
 		}
 		
 	
