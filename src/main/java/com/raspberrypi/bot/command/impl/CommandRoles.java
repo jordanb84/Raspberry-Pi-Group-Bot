@@ -2,14 +2,17 @@ package com.raspberrypi.bot.command.impl;
 import java.util.Collection;
 
 import com.raspberrypi.bot.command.Command;
+
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.entities.message.Message;
 import de.btobastian.javacord.entities.permissions.Role;
 import de.btobastian.javacord.entities.Server;
 
 public class CommandRoles extends Command {
+	protected static String[] listofRoles = {"C++", "Java", "JavaScript", "Python"};
+	
 	public CommandRoles(){
-		super("role", new String[] {}, "Adds/deletes you to a specifc role.", "add <role> or delete <role>");
+		super("role", new String[] {}, "Adds/deletes you to a specifc role.", "role add <role> or role delete <role>\nArguments you can use: " + addElementsTogether(listofRoles));
 	}
 	
 	private boolean contain(String[] str, String check){
@@ -27,8 +30,6 @@ public class CommandRoles extends Command {
 	public void onUse(DiscordAPI api, String[] arguments, Message callMessage) throws Exception {
 	
 		Server s;
-		
-		String[] listofRoles = {"C++", "Java", "JavaScript", "Python"};
 		
 		String progRole = arguments[2];
 		
