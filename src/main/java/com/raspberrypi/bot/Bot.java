@@ -7,6 +7,7 @@ import com.raspberrypi.bot.command.impl.CommandHelp;
 import com.raspberrypi.bot.command.impl.CommandInvites;
 import com.raspberrypi.bot.command.impl.CommandRoles;
 import com.raspberrypi.bot.command.impl.CommandStallman;
+import com.raspberrypi.bot.command.impl.CommandTest;
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;
@@ -39,6 +40,7 @@ public class Bot {
 		this.commandManager.registerCommand(new CommandRoles());
 		this.commandManager.registerCommand(new CommandHelp(this.commandManager));
 		this.commandManager.registerCommand(new CommandStallman());
+		this.commandManager.registerCommand(new CommandTest());
 	}
 	
 	/**
