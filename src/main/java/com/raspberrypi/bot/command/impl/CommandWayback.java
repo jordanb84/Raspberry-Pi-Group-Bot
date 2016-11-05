@@ -75,5 +75,7 @@ public class CommandWayback extends Command {
 		
 		message = url.getAsString();
 		callMessage.reply(message);
+		
+		client.close();
 	}
 }
