@@ -9,7 +9,7 @@ import de.btobastian.javacord.entities.message.Message;
 public class CommandInvites extends Command {
 
 	public CommandInvites() {
-		super("invites", new String[] {}, "Displays the amount of people you've invited to the server via your permanent invitation link");
+		super("invites", new String[] {}, "Displays the amount of people you've invited to the server via your permanent invitation link", "invites");
 	}
 
 	@Override

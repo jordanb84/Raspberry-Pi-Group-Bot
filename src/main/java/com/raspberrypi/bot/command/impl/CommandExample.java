@@ -15,7 +15,7 @@ import de.btobastian.javacord.entities.message.Message;
 public class CommandExample extends Command {
 
 	public CommandExample() {
-		super("ping", new String[] {}, "Example ping command");
+		super("ping", new String[] {}, "Example ping command", "ping");
 	}
 
 	@Override

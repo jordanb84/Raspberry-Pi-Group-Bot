@@ -14,7 +14,7 @@ public class CommandHelp extends Command {
 	private final CommandManager commandManager;
 	
 	public CommandHelp(CommandManager commandManager) {
-		super("help", new String[] {}, "Displays all commands");
+		super("help", new String[] {}, "Displays all commands", "help");
 		this.commandManager = commandManager;
 	}
 
@@ -27,6 +27,7 @@ public class CommandHelp extends Command {
 			
 			for(Command command : this.commandManager.getCommandsForSection(section)){
 				helpMessage += (command.getIdentifier() + ": " + command.getDescription());
+				helpMessage += ("\nUsage: " + command.getUsage());
 				
 				if(command.getArguments().length > 0){
 					helpMessage += ("\nArguments: " + Arrays.toString(command.getArguments()));

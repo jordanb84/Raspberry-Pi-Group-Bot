@@ -9,7 +9,7 @@ import de.btobastian.javacord.entities.Server;
 
 public class CommandRoles extends Command {
 	public CommandRoles(){
-		super("role", new String[] {}, "Adds/deletes you to a specifc role.");
+		super("role", new String[] {}, "Adds/deletes you to a specifc role.", "add <role> or delete <role>");
 	}
 	
 	private boolean contain(String[] str, String check){

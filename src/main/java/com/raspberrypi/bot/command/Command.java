@@ -11,12 +11,15 @@ public abstract class Command {
 	
 	private final String description;
 	
+	private final String usage;
+	
 	private CommandSection section;
 	
-	public Command(String identifier, String[] arguments, String description){
+	public Command(String identifier, String[] arguments, String description, String usage){
 		this.identifier = identifier;
 		this.arguments = arguments;
 		this.description = description;
+		this.usage = usage;
 		this.section = CommandSection.General;
 	}
 
@@ -47,5 +50,9 @@ public abstract class Command {
 	
 	public CommandSection getSection(){
 		return this.section;
+	}
+
+	public String getUsage() {
+		return usage;
 	}
 }
