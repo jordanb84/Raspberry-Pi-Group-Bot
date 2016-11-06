@@ -6,15 +6,12 @@ import com.raspberrypi.bot.command.impl.CommandExample;
 import com.raspberrypi.bot.command.impl.CommandHelp;
 import com.raspberrypi.bot.command.impl.CommandInvites;
 import com.raspberrypi.bot.command.impl.CommandRoles;
-<<<<<<< HEAD
 import com.raspberrypi.bot.command.impl.CommandShow;
-=======
+import com.raspberrypi.bot.command.impl.CommandSnailRace;
 import com.raspberrypi.bot.command.impl.CommandStallman;
-import com.raspberrypi.bot.command.impl.CommandTest;
 import com.raspberrypi.bot.command.impl.CommandWayback;
 import com.raspberrypi.bot.events.EventGiveBerry;
 import com.raspberrypi.bot.events.EventGiveIntroduced;
->>>>>>> 3714d20214baf63dbd467219883a49b735649550
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;
@@ -49,7 +46,7 @@ public class Bot {
 		this.commandManager.registerCommand(new CommandHelp(this.commandManager));
 		this.commandManager.registerCommand(new CommandWayback());
 		this.commandManager.registerCommand(new CommandStallman());
-		this.commandManager.registerCommand(new CommandTest());
+		this.commandManager.registerCommand(new CommandSnailRace());
 	}
 	public void registerEvents(){
 

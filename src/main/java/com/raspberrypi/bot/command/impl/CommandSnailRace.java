@@ -12,10 +12,10 @@ import com.raspberrypi.bot.command.Command;
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.entities.message.Message;
 
-public class CommandTest extends Command {
+public class CommandSnailRace extends Command {
 
-	public CommandTest() {
-		super("test", new String[] {}, "Test command", "test");
+	public CommandSnailRace() {
+		super("race", new String[] {}, "Runs a snail race versus bots", "race");
 		// TODO Auto-generated constructor stub
 	}
 
