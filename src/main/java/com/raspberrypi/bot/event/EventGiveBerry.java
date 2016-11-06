@@ -14,7 +14,7 @@ import de.btobastian.javacord.listener.server.ServerMemberAddListener;
 
 public class EventGiveBerry implements ServerMemberAddListener {
 	// Berry Eater, Berry Gobbler, Berry Legend
-    public static String generalID = "204654022873841664"; // RPI spammy :3
+    public static String generalID = "208628299012898816"; // RPI #Berries channel
 	//public static String GeneralID = "207079585173602304"; // Private testing
 	@Override
 	public void onServerMemberAdd(DiscordAPI api,User user,Server server) {
