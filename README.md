@@ -28,5 +28,8 @@ Discord bot for the Raspberry Pi Discord group
 
 1. Snail/Emoji Races. We could have somebody build a command that people would pick emoji's or be assigned a snail to race.
 2. Betting. We could also merge the betting and snail races or make them link .
-3. Automatically giving roles based on invites.
-4. You can send only 1 message in #introduce-yourself
+3. Integrate database. It will set the database up automatically if you have database software installed and there is no existing database. Include abstract database managing functionality. This can be used for a variety of fun games and such.
+4. Obstacles, powerups, and different maps for snail races. All can be achieved with a couple of nice enums.
+5. Roles are automatically reassigned to people when they rejoin.
+6. Later, the snail races could be made into a full fledged game aside from the mini game. In this game, it would be like a "grinding" Flash game where you play races, collect money based on how well you do, then you can use your money to buy perks and upgrades for your character. You can then unlock harder races etc to win more money.
+7. dank mini game ideas
