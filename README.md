@@ -23,6 +23,51 @@ Discord bot for the Raspberry Pi Discord group
 
 3. **All done!**
 
+# Adding your first game
+
+0. **Introduction** - The bot provides an abstract, simple to use game API suited for easily constructing text based mini games.
+
+1. Create a new Game class, such as `GameSnailRace` under the `com.raspberrypi.bot.game.impl` package.
+   This class should extend `Game`. As you'll see once you generate the required functions and constuctor(s),
+   the structure of a game is quite simple. You fill out basic information in the constructor, you perform each
+   frame of logic under the `update` function, and you modify the game message for display under the `draw` function.
+   Initiation of the game is done under the `create` function, and logic performed when the game is finished is done
+   under the `endGame` function. All games are automatically multi threaded. All that is needed to start an instance
+   of your game is for example `GameSnailRace snailRace = new GameSnailRace(args)` then `snailRace.start()`
+   
+2. Now you'll want to know about entities. These will be vital to almost any text game.
+   For example, in the snail race game, we have the `EntitySnail` entity in
+   `com.raspberrypi.bot.game.entity.impl`. All this does is store it's
+   position and score, then modify those randomly each time it is called
+   by the `GameSnailRace` game. The `update` function in your entity
+   will be called every time the game which it is in updates the entity,
+   which is usually every tick. Now that we have our `EntitySnail` which
+   has a position and score, both of which are updated by the `EntitySnail`,
+   the `GameSnailRace` game is able to draw each snail at it's position alongside
+   it's score. The `GameSnailRace` game stores a list of snails that are in
+   the race.
+
+3. You should now have a basic understanding of how games work. If you feel something
+   new is required in the API, feel free to add that functionality while implementing
+   your game or request it by adding to the todo list. 
+
+# Code Quality Standards
+
+0. For a high quality, maintainable code base:
+   
+   
+   Code should be simple and effective. Every piece of your code
+   should do one thing and do it right, in the most obvious
+   manner possible. Design patterns and naming conventions
+   should be followed. I recommend you at least skim through
+   [this book](http://ricardogeek.com/docs/clean_code.pdf),
+   which is highly recommended and contains quotes from many
+   brilliant people such as the inventor of C++.
+   
+   Clean code is something you learn through experience, so
+   long as you have the will to concentrate on it. Start
+   practicing and it will make you a far better programmer
+   in the future.
 
 # TODO
 
