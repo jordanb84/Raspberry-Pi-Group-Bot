@@ -10,8 +10,8 @@ import com.raspberrypi.bot.command.impl.CommandShow;
 import com.raspberrypi.bot.command.impl.CommandSnailRace;
 import com.raspberrypi.bot.command.impl.CommandStallman;
 import com.raspberrypi.bot.command.impl.CommandWayback;
-import com.raspberrypi.bot.events.EventGiveBerry;
-import com.raspberrypi.bot.events.EventGiveIntroduced;
+import com.raspberrypi.bot.event.EventGiveBerry;
+import com.raspberrypi.bot.event.EventGiveIntroduced;
 
 import de.btobastian.javacord.DiscordAPI;
 import de.btobastian.javacord.Javacord;

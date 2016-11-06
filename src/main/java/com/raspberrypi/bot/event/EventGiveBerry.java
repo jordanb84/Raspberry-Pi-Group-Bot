@@ -1,4 +1,4 @@
-package com.raspberrypi.bot.events;
+package com.raspberrypi.bot.event;
 
 import java.util.Collection;
 import java.util.HashMap;

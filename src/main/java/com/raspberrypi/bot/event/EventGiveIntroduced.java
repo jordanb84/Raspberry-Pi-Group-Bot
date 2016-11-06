@@ -1,4 +1,4 @@
-package com.raspberrypi.bot.events;
+package com.raspberrypi.bot.event;
 
 
 import de.btobastian.javacord.DiscordAPI;
