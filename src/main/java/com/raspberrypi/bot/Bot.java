@@ -5,6 +5,7 @@ import com.raspberrypi.bot.command.CommandManager;
 import com.raspberrypi.bot.command.impl.CommandExample;
 import com.raspberrypi.bot.command.impl.CommandHelp;
 import com.raspberrypi.bot.command.impl.CommandInvites;
+import com.raspberrypi.bot.command.impl.CommandPlaying;
 import com.raspberrypi.bot.command.impl.CommandRoles;
 import com.raspberrypi.bot.command.impl.CommandShow;
 import com.raspberrypi.bot.command.impl.CommandSnailRace;
@@ -36,6 +37,7 @@ public class Bot {
 		this.registerCommands();
 		this.registerEvents();
 		this.connect();
+		this.api.setGame("campaining against proprietary software");
 	}
 	
 	public void registerCommands(){
@@ -47,6 +49,7 @@ public class Bot {
 		this.commandManager.registerCommand(new CommandWayback());
 		this.commandManager.registerCommand(new CommandStallman());
 		this.commandManager.registerCommand(new CommandSnailRace());
+		this.commandManager.registerCommand(new CommandPlaying());
 	}
 	public void registerEvents(){
 
