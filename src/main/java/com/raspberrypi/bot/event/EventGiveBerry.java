@@ -36,24 +36,27 @@ public class EventGiveBerry implements ServerMemberAddListener {
             }
 		
 		for(Invite invite : serverInvites){
-			if(invite.getUses() >= 250 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Corp")) && !invite.getCreator().isBot() && invite.getServer().isMember(invite.getCreator() )){
+			if (invite.getCreator().isBot() || invite.getServer().isMember(invite.getCreator())){
+				return;
+			}
+			if(invite.getUses() >= 250 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Corp"))){
 				roles.get("Berry Corp").addUser(invite.getCreator());
-					server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag() + " **Got Berry Corp! THATS MENTAL!**");
+					server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag() + " **Got Berry Corp! THAT'S MENTAL!**");
 					return;
 		    }
 			
 			
-			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Legend")) && !invite.getCreator().isBot()&& invite.getServer().isMember(invite.getCreator())){
+			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Legend"))){
 				roles.get("Berry Legend").addUser(invite.getCreator());
 					server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag() + " **Got Berry Legend! Woah!**");
 					return;
 		    }
-			if(invite.getUses() >= 50 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Gobbler")) && !invite.getCreator().isBot() && invite.getServer().isMember(invite.getCreator())){
+			if(invite.getUses() >= 50 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Gobbler"))){
 				roles.get("Berry Gobbler").addUser(invite.getCreator());
 				server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Gobbler! Cool!**");
 				return;
 		    }	
-			if(invite.getUses() >= 100 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Eater")) && !invite.getCreator().isBot()&& invite.getServer().isMember(invite.getCreator())){
+			if(invite.getUses() >= 5 && !invite.getCreator().getRoles(server).contains(roles.get("Berry Eater"))){
 				roles.get("Berry Eater").addUser(invite.getCreator());
 				server.getChannelById(generalID).sendMessage(invite.getCreator().getMentionTag()+ " **Got Berry Eater!**");
 				
