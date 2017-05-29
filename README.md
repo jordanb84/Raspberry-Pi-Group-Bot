@@ -3,6 +3,7 @@
 # Raspberry Pi Group Bot
 Discord bot for the Raspberry Pi Discord group
 
+Bot is currently discontinued until fUrther NoTIcE
 # Setup for Eclipse
 
 1. Install the Egit and M2eclipse plugins if you have not already. Follow [this guide](http://agile.csc.ncsu.edu/SEMaterials/tutorials/install_plugin/index_v35.html) ( **Installing a Plug-in with an Update Site**) for each plugin, using  `http://download.eclipse.org/egit/updates` as the update site for Egit and `http://download.eclipse.org/technology/m2e/releases` as the update site for M2Eclipse
