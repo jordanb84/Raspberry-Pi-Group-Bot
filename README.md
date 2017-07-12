@@ -5,7 +5,8 @@ Discord bot for the Raspberry Pi Discord group
 
 Bot is currently discontinued until fUrther NoTIcE
 # Setup for Eclipse
-
+ first, you gotta rm rf your system. /sarcasm
+ 
 1. Install the Egit and M2eclipse plugins if you have not already. Follow [this guide](http://agile.csc.ncsu.edu/SEMaterials/tutorials/install_plugin/index_v35.html) ( **Installing a Plug-in with an Update Site**) for each plugin, using  `http://download.eclipse.org/egit/updates` as the update site for Egit and `http://download.eclipse.org/technology/m2e/releases` as the update site for M2Eclipse
 
 2. Clone the project from either your fork (if you made one) or this repository. **File > Import > Git > Projects from Git > Clone URI > Paste https://github.com/jordanb84/Raspberry-Pi-Group-Bot.git as the URI if you're not using a fork and fill out `authentication information > Next > Next > Next > Select "Import as general project and click Next > Finish**
